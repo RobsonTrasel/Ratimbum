@@ -1,7 +1,6 @@
 {
     "name": "Ratimbum",
     "description": "Music bot",
-    "repository": "",
-    "logo": "https://i.imgur.com/JFxgbWH.png",
+    "repository": "https://github.com/RBFernando01/Ratimbum",
     "keywords": ["discord", "discordjs", "music", "bot"]
 }
