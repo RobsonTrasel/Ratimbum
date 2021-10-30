@@ -14,7 +14,7 @@ client.queue = new Map();
 const cooldowns = new Collection();
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 client.on("ready", () => {
-  console.log(`${client.user.username} ready!`);
+  console.log(`${client.user.username} pronto!`);
   client.user.setActivity(`${PREFIX}ajuda e ${PREFIX}play`, { type: "LISTENING" });
 });
 client.on("warn", (info) => console.log(info));
