@@ -1,21 +1,34 @@
 const { Client, Collection } = require('discord.js')
 const { readdirSync } = require('fs')
 const { join } = require('path')
-const { TOKEN, PREFIX } = require('./util/util')
+const { PREFIX, TOKEN } = require('./util/Util')
 const i18n = require("./util/i18n");
 const client = new Client({
     disableMentions: "everyone",
     restTimeOffset: 0
 })
+const keepAlive = require('./server');
+keepAlive();
+
 client.login(TOKEN)
+
+
 client.commands = new Collection();
 client.prefix = PREFIX;
 client.queue = new Map();
 const cooldowns = new Collection();
+const atividades = [
+  "Criado por Robson Fernando",
+  "r.ajuda",
+  "Estou onlinee :D"
+]
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 client.on("ready", () => {
   console.log(`${client.user.username} pronto!`);
-  client.user.setActivity(`${PREFIX}ajuda e ${PREFIX}play`, { type: "LISTENING" });
+  setInterval(()=> {
+    const index = Math.floor(Math.random() * (atividades.length - 1) + 1)
+    client.user.setActivity(atividades[index], {type: "LISTENING"})
+  }, 30000)
 });
 client.on("warn", (info) => console.log(info));
 client.on("error", console.error);
